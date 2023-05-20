@@ -185,6 +185,31 @@ To address this limitation, event-based approaches come into play by incorporati
 ''',
 unsafe_allow_html=True)
 
-code = '''def hello():
-    print("Hello, Streamlit!")'''
+code = '''
+def calculate_implicit_ratings_for_user(user_id):
+
+    data = query_aggregated_log_data_for_user(user_id)
+
+    agg_data = dict()
+    max_rating = 0
+
+    for row in data:
+        content_id = str(row['content_id'])
+        if content_id not in agg_data .keys():
+            agg_data[content_id] = defaultdict(int)
+
+        agg_data[content_id][row['event']] = row['count']
+
+    ratings = dict()
+    for k, v in agg_data .items():
+
+        rating = w1 * v['buy'] + w2 * v['details'] + w3 * v['moredetails']
+        max_rating = max(max_rating, rating)
+
+        ratings[k] = rating
+
+    for content_id in ratings.keys():
+        ratings[content_id] = 10 * ratings[content_id] / max_rating
+
+    return ratings'''
 st.code(code, language='python')
