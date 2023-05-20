@@ -144,3 +144,47 @@ unsafe_allow_html=True)
 
 image = Image.open('shopping.png')
 st.image(image)
+
+st.markdown('''
+<style>
+        .highlight {
+            background: linear-gradient(to bottom, transparent 50%, #ADD8E6 50%);
+            font-weight: bold;
+        }
+</style>
+
+<span class='highlight'>
+BINARY USER-ITEM MATRIX
+</span>
+<p>
+In the user-item matrix, each cell contains a value of 1 if the user has made a purchase for that particular item, and a value of 0 if there is no purchase history for that item by the user.
+In the table below, it is indicated that customer 2 has made a purchase of lip balm, but there are no records of purchases for oil and cleanser by customer 2.
+</p>
+
+''',
+unsafe_allow_html=True)
+
+image = Image.open('table_2.png')
+st.image(image)
+
+st.markdown('''
+<style>
+        .highlight {
+            background: linear-gradient(to bottom, transparent 50%, #ADD8E6 50%);
+            font-weight: bold;
+        }
+</style>
+
+<span class='highlight'>
+EVENT-BASED USER-ITEM MATRIX
+</span>
+<p>
+Using only purchase or non-purchase events in your matrix can result in a sparse matrix with many empty cells.
+To address this limitation, event-based approaches come into play by incorporating user interactions such as views, adding items to the cart, wishlisting, or any other relevant events.
+</p>
+''',
+unsafe_allow_html=True)
+
+code = '''def hello():
+    print("Hello, Streamlit!")'''
+st.code(code, language='python')
