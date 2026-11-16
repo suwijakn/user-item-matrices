@@ -42,6 +42,8 @@ rich==13.3.5
 seaborn==0.12.2
 semver==3.0.0
 six==1.16.0
+# Streamlit 1.1.0 imports pkg_resources, removed in Setuptools 82.
+setuptools==81.0.0
 smmap==5.0.0
 streamlit==1.1.0
 tenacity==8.2.2
